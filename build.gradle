@@ -1,0 +1,65 @@
+plugins {
+//    id 'java'
+    id 'org.springframework.boot' version '2.3.3.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+ext {
+    springCloudVersion = 'Hoxton.SR8'
+    springCloudAlibabaVersion = '2.2.5.RELEASE'
+    mysqlVersion = '8.0.25'
+    junitVersion = '4.12'
+    lombokVersion = '1.18.20'
+}
+
+// root 项目不需要启动
+//bootJar.enabled = false;
+
+repositories {
+    repositories {
+        mavenLocal()
+        maven {url 'https://maven.aliyun.com/nexus/content/groups/public/'}
+        mavenCentral()
+    }
+}
+
+// 子项目的通用配置
+subprojects {
+    // 使用插件
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    // 项目的默认名称和版本
+    group 'com.will'
+    version '1.0-SNAPSHOT'
+
+    // 指定JDK版本
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    jar.enabled = true
+
+    // 指定仓库地址
+    repositories {
+        mavenLocal()
+        maven {url 'https://maven.aliyun.com/nexus/content/groups/public/'}
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        // 导入SpringBoot和SpringCloud依赖Bom
+        imports {
+//            mavenBom SpringBootPlugin.BOM_COORDINATES
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
+        }
+    }
+
+    dependencies {
+        testImplementation "junit:junit:${junitVersion}"
+        implementation "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    }
+}
+
+description='nacos-demo'

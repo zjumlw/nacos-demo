@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: nacos-config-server
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        name: nacos-config.yml
+        group: DEFAULT_GROUP
+        file-extension: yaml
+        namespace: 09e6a540-2b5b-4c05-9ca7-01f451defc2d #dev
+        extension-configs[0]:
+          data-id: mysql_common.properties
+          group: DEFAULT_GROUP
+          refresh: true
+        extension-configs[1]:
+          data-id: redis_common.properties
+          group: DEFAULT_GROUP
+          refresh: true
+        extension-configs[2]:
+          data-id: mao.properties
+          group: MAO_GROUP
+          refresh: true
+
+
+nacos:
+  demo:
+    name: 'jack'
+    age: 20

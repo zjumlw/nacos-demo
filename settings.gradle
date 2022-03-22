@@ -1,0 +1,6 @@
+rootProject.name = 'nacos-demo'
+include 'nacos-config'
+include 'nacos-order'
+include 'nacos-stock'
+include 'nacos-discovery'
+

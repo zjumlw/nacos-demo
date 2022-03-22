@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar" />
+        </processorPath>
+        <module name="com.will.nacos-demo.nacos-config.main" />
+        <module name="nacos-demo.nacos-discovery.main" />
+        <module name="nacos-demo.nacos-order.main" />
+        <module name="nacos-demo.nacos-stock.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8" />
+  </component>
+</project>

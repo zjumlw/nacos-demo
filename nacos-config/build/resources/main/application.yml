@@ -1,0 +1,9 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+#nacos:
+#  demo:
+#    name: 'tom'
+#    age: 18
